@@ -1,0 +1,157 @@
+/* src/components/Game.css */
+
+/* Card container */
+.card {
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+  }
+  
+  .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .card-back {
+    background-color: #ff6f61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .card img {
+    border-radius: 8px;
+  }
+  
+  /* Grid container */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+    margin-top: 10px;
+  }
+  
+  /* Fade animation */
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  
+  /* End message */
+  .end-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .end-message p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6f61;
+    text-align: center;
+  }
+  
+  .end-message img {
+    /* max-width: 100px;
+    height: auto;
+    margin: 10px 0; */
+  }
+  
+  .end-message button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .end-message button:hover {
+    background-color: #ff4d40;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .grid-container {
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+    }
+}
+  @media (max-width: 667px) {
+    .grid-container {
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      
+    }
+}
+  
+  @media (max-width: 480px) {
+    .end-message p {
+      font-size: 1.5rem;
+    }
+  
+    .end-message img {
+      /* max-width: 80px; */
+    }
+  
+    .end-message button {
+      font-size: 0.875rem;
+      padding: 8px 16px;
+    }
+  }
+  
